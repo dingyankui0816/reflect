@@ -1,5 +1,7 @@
 package com.cn.reflect.service;
 
+import com.cn.reflect.model.SimpleBean;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -30,5 +32,9 @@ public class ReflectForNameToMethod {
         Method staticMethod = clazz.getMethod("ggg");
         //静态方法可以为null
         staticMethod.invoke(null);
+        System.out.println("=============代理模式，并调用==============");
+        SimpleBean simpleBean = new SimpleBean("levi.ding",23);
+        Method toStringMethod = clazz.getMethod("toString");
+        System.out.println(toStringMethod.invoke(simpleBean));
     }
 }
